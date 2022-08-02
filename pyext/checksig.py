@@ -1,5 +1,6 @@
 """Parallel check of files digital signature"""
 
+
 import ctypes
 from distutils.sysconfig import get_config_var
 from pathlib import Path
@@ -7,7 +8,7 @@ from pathlib import Path
 # Location of shared library
 here = Path(__file__).absolute().parent
 ext_suffix = get_config_var('EXT_SUFFIX')
-so_file = here / ('_checksig' + ext_suffix)
+so_file = here / f'_checksig{ext_suffix}'
 
 # Load functions from shared library set their signatures
 so = ctypes.cdll.LoadLibrary(so_file)

@@ -22,8 +22,7 @@ class OutliersServer(OutliersServicer):
         data = np.fromiter((m.value for m in request.metrics), dtype='float64')
         indices = find_outliers(data)
         logging.info('found %d outliers', len(indices))
-        resp = OutliersResponse(indices=indices)
-        return resp
+        return OutliersResponse(indices=indices)
 
 
 if __name__ == '__main__':
